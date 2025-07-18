@@ -88,7 +88,7 @@ function onMapClick(e) {
 //Salvar novo ponto
 function savePoint(name, description, latlng, imageUrl, votes = 1, tipoOcorrencia) {
   const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-  const nomeCriador = usuarioLogado ? usuarioLogado.nome : 'Anônimo';  // NÃO ACHO QUE PRECISA DESSE COD
+  const nomeCriador = usuarioLogado ? usuarioLogado.nome : 'Anônimo';
 
   const newPoint = {
     name,
@@ -98,7 +98,7 @@ function savePoint(name, description, latlng, imageUrl, votes = 1, tipoOcorrenci
     imageUrl: imageUrl || '',
     tipoOcorrencia,
     votes,
-    criador: "Anônimo" // RETORNAR ANÔNIMO NOS PONTOS CRIADOS
+    criador: nomeCriador
   };
 
   const savedPoints = JSON.parse(localStorage.getItem('mapPoints')) || [];
