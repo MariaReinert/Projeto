@@ -1,0 +1,14 @@
+Passo a passo pra juntar o banco com o cod
+
+
+Ctrl aspas
+Vai abrir o terminal
+Dentro dele vc se localiza em qual pasta está digitando LS e dando enter 
+Acessa a pasta com CD nome dela
+
+Chegue até a pasta cidade
+E execute os códigos
+
+javac -cp ".;lib/mysql-connector-j-9.3.0.jar" src/Main.java -d bin
+ENTER
+java -cp ".;lib/mysql-connector-j-9.3.0.jar;bin" Main
