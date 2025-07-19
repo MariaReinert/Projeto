@@ -1,0 +1,35 @@
+CREATE DATABASE IF NOT EXISTS sistema_marcacoes;
+USE sistema_marcacoes;
+
+CREATE TABLE Usuario (
+    usuario_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    cpf VARCHAR(11) NOT NULL,
+    senha TEXT NOT NULL,
+    perfil VARCHAR(50) NOT NULL DEFAULT 'Usuario'
+);
+
+CREATE TABLE Marcacao (
+    marcacao_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(120) NOT NULL,
+    descricao TEXT NOT NULL,
+    foto_path TEXT NOT NULL,
+    latitude DOUBLE NOT NULL,
+    longitude DOUBLE NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'Aberto', 
+    data_criacao DATETIME NOT NULL,
+    usuario_id BIGINT,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id)
+);
+
+CREATE TABLE VotosMarcacao (
+    id_voto BIGINT AUTO_INCREMENT PRIMARY KEY,
+    usuarioID BIGINT,
+    MarcacaoID BIGINT,
+    FOREIGN KEY (usuarioID) REFERENCES Usuario(usuario_id),
+    FOREIGN KEY (MarcacaoID) REFERENCES Marcacao(marcacao_id)
+);
+
+SELECT * FROM Usuario;
+SELECT * FROM Marcacao;
